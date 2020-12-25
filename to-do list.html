@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-list</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:"Aladin";
+            list-style: none;
+        }
+        body{
+            background-color: #eee;
+            text-align: center;
+        }
+        .tophead{
+            background-color:#0a1;
+            padding: 3rem;
+            text-transform: capitalize;
+        }
+        .tophead:after{
+            clear: both;
+            display: table;
+        }
+        .tophead h1{
+            text-transform: uppercase;
+            color: azure;
+        }
+        #Tdinput{
+            padding: 0.5rem;
+            float: left;
+            width: 75%;
+            text-transform: capitalize;
+            font-size: 18px;
+            border: none;
+        }
+        #addbtn{
+            width: 25%;
+            padding: 0.5rem;
+            float: left;
+            text-transform: capitalize;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        #addbtn:hover{
+            background-color: #000;
+            color: #fff;
+        }
+        h3{
+            padding: 1rem;
+            text-transform: capitalize;
+            color: #234;
+            font-size: 28px;
+        }
+        ul li{
+            cursor: pointer;
+            font-size: 18px;
+            padding: .8rem;
+            background-color: #234;
+            color:#fff;
+            text-transform: capitalize;
+            transition: 0.5s;
+            margin-bottom: 10px;
+        }
+        ul li:nth-child(even){
+            background-color: rgba(0,0,0,0.1);
+            color: black;
+        }
+        ul li:hover{
+            background-color: rgba(0,0,0,0.5);
+        }
+        span{
+            color: green;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tophead" id="tophead">
+        <h1>to-do list</h1>
+        <input type="text" id="Tdinput" placeholder="enter your activity">
+        <button id="addbtn" onclick="todoFuc()">add event</button>
+    </div>
+    <h3>your activities is here...</h3>
+    <ul class="tdlist" id="tdlist">
+     <span id="mess"></span>
+    </ul>
+   <script>
+    function todoFuc(){ 
+     var inputval=document.getElementById('Tdinput');
+     var tdlist=document.getElementById("tdlist");
+    if(inputval.value!=""){
+     var create_li=document.createElement("LI");
+     create_li.appendChild(document.createTextNode(inputval.value));
+     tdlist.appendChild(create_li);
+
+    create_li.onclick=function(){
+       this.parentNode.removeChild(this);
+       document.getElementById("mess").innerHTML="**your activity was completed."
+     }
+   } 
+    else{
+        alert("please fill the value");
+     }
+ } 
+   </script> 
+</body>
+</html>

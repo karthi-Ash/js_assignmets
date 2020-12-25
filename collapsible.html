@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:sans-serif;
+        }
+        body{
+            background-color: lightcyan;
+        }
+        h1{
+            text-align: center;
+            text-transform: capitalize;
+            padding: 1rem;
+            color: limegreen;
+            font-weight: bolder;
+        }
+        .collapse{
+            text-align: center;
+            padding: 4rem;
+        }
+        button{
+            cursor: pointer;
+        }
+        .collapse_button{
+            width: 100%;
+            padding: 0.8rem;
+            color: #fff;
+            background-color:rgba(0,0,0,0.7);
+            text-align: left;
+            text-transform: capitalize;
+            font-size: 18px;
+            border: none;
+            transition: 0.2s;
+            outline: none;
+        }
+        .collapse_button:after{
+            content: '\25be';
+            float: right;
+            transform: scale(1.5);
+            color: #ffffff;
+        }
+        .collapse_content{
+            padding: .5rem 1rem;
+            background-color: rgba(0,0,0,0.2);
+            text-transform: lowercase;
+            text-align: justify;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>collapsible container</h1>
+    <hr>
+    <div class="collapse">
+        <button class="collapse_button">expand content</button>
+        <div class="collapse_content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi accusantium laborum fugiat cupiditate pariatur culpa deserunt earum optio quod id,
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, sunt Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, sed? recusandae provident placeat autem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam earum veritatis ducimus veniam? Dolores dolorem ab dolorum, tempora rem dignissimos. </p>
+        </div>
+    </div>
+    <script>
+        var col=document.getElementsByClassName("collapse_button");
+        var i;
+       for(i=0;i<col.length;i++){
+            col[i].addEventListener("click",function(){
+                var content=this.nextElementSibling;
+                 if(content.style.display=="block"){
+                    content.style.display="none";
+                 }
+                 else{
+                    content.style.display="block";
+                 }
+            });
+     }
+    </script>
+</body>
+</html>
