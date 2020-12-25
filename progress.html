@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress</title>
+    <style>
+           *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:sans-serif;
+        }
+        body{
+            background-color: #222;
+        }
+        h1{
+            text-align: center;
+            text-transform: capitalize;
+            padding: 1rem;
+            color: limegreen;
+            font-weight: bolder;
+        }
+        .progress{
+            text-align: center;
+        }
+        #Input{
+            border: 1px solid #ffe;
+            font-size: 18px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 10px auto;
+            padding: 0.8rem;
+            margin: 20px auto;
+        }
+        #pbtn{
+            padding: 1rem;
+            margin: auto;
+            text-transform:capitalize;
+            margin: 10px auto;
+            border-radius: 10px;
+            font-size: 15px;
+            background-color: seagreen;
+            color: oldlace;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .userprogress{
+            background-color: #002;
+            width: 80%;
+            margin: 20px;
+            padding: .3rem;
+            border-radius: 20px;
+            display: none;
+        }
+        .userbar{
+            width:0;
+            background-color: red;
+            height: 30px;
+            color: oldlace;
+            line-height: 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        span{
+            color: red;
+            font-weight:bolder;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <h1>progress bar</h1>
+    <hr>
+    <div class="progress" id="progress">
+    <input type="text" id="Input" placeholder="Enter the value"><br>
+       <button id="pbtn" onclick="barFuc()">click to generate the progress</button> 
+       <div class="userprogress" id="userprogress">
+           <div class="userbar" id="userbar"></div>
+       </div>
+    </div>  
+    <br>
+    <span id="alertval"></span> 
+    <script>
+        function barFuc() {
+        var inputval=document.getElementById('Input').value;
+        var z=document.getElementById("userprogress");
+        if ((inputval=="") || (inputval>100)){
+                    document.getElementById('alertval').innerHTML="**enetr the number b/w 0-100 please";
+                    return false;
+                }
+            var width=0;
+            var elem=document.getElementById('userbar');
+            var id=setInterval(frame, 50);
+            function frame() {
+            if (width>=inputval) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width=width+"%";
+                elem.innerHTML=width+"%";
+                z.style.display="block"
+         }
+        } 
+    }
+    </script>
+</body>
+</html>
