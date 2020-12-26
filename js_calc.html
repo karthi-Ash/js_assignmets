@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js_Calculator</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans";
+        }
+        body{
+            background-color: rgba(0,0,0,3);
+        }
+        h2{
+            color: #eee;
+            text-align: center;
+            padding: .5rem;
+            padding-top: 20px;
+            text-transform:capitalize;
+        }
+        .calc{
+            background-color: aqua;
+            margin:0px auto;
+            top: 40px;
+            position: relative;
+            width: 320px;
+            height: 480px;
+            border-radius: 10px;
+            background-color: #eee;
+            box-shadow: 0 0 20px grey;
+            text-align: center;
+        }
+        #result{
+            height: 50px;
+            text-align: right;
+            padding: 1rem;
+            border: none;
+            width: 90%;
+            font-size: 23px;
+            font-weight: bold;
+            margin: 20px auto;
+            background-color: #aae;
+            color: #000;
+            border-radius: 10px;
+            outline: none;
+        }
+        .operator,.number{
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #232;
+            border: 1px solid white;
+            color: #fff;
+            outline: none;
+        }
+        .operator{
+            background-color: seagreen;
+        }
+        .equal{
+            width: 80%;
+            height: 50px;
+            margin: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: #233;
+            border: 1px solid white;
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>calculator</h2>
+    <hr>
+    <div class="calc">
+        <input type="text" id="result">
+        <div class="keyborad" id="keyborad">
+        <button type="button" value="9" class="number" onclick="display('9')">9</button>
+        <button type="button" value="8" class="number" onclick="display('8')">8</button>
+        <button type="button" value="7" class="number" onclick="display('7')">7</button>
+        <button type="button" value="+" class="operator" onclick="display('+')">+</button>
+        <button type="button" value="6" class="number" onclick="display('6')">6</button>
+        <button type="button" value="5" class="number" onclick="display('5')">5</button>
+        <button type="button" value="4" class="number" onclick="display('4')">4</button>
+        <button type="button" value="-" class="operator" onclick="display('-')">-</button>
+        <button type="button" value="3" class="number" onclick="display('3')">3</button>
+        <button type="button" value="2" class="number" onclick="display('2')">2</button>
+        <button type="button" value="1" class="number" onclick="display('1')">1</button>
+        <button type="button" value="*" class="operator" onclick="display('*')">*</button>
+        <button type="button" value="." class="number" onclick="display('.')">.</button>
+        <button type="button" value="0" class="number" onclick="display('0')">0</button>
+        <button type="button" value="c" class="number" onclick="document.getElementById('result').value=''">C
+        </button>
+        <button type="button" value="/" class="operator" onclick="display('/')">/</button>
+        <button type="button" value="=" class="equal" onclick="solve()">=</button>
+        </div>
+    </div>
+    <script>
+        function display(val){
+            document.getElementById("result").value+=val;
+        } 
+        function solve(){
+            var firstval=document.getElementById("result").value;
+            var secondval=eval(firstval);
+            document.getElementById("result").value=secondval;
+        }
+    </script>
+</body>
+</html>
